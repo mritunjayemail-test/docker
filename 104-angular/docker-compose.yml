@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  ngx-admin-service:
+    container_name: my-ngx-app-compose
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - './ngx-admin:/usr/src/app'
+      - '/ngx-admin/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
